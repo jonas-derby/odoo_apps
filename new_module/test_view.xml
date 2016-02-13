@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+       <record id="view_test_tree" model="ir.ui.view">
+            <field name="name">view.test.tree</field>
+            <field name="model">python.test</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+            	<tree string="Test">
+            		<field name="name" />
+            	</tree>
+            </field>
+       </record>
+    
+        <record id="view_test_from" model="ir.ui.view">
+            <field name="name">view.test.form</field>
+            <field name="model">python.test</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+            <form string="test">
+                <field name="name" colspan="4"  nolabel="1"/>
+       			<field name="code" colspan="4" nolabel="1"/>
+                <group colspan="4">
+                 	<button name="test" string="test" type="object" icon="terp-gtk-go-back-rtl"/>
+                </group>
+                <group colspan="4">
+                 	<field name="result" colspan="4" nolabel="1"/>
+                </group>
+            </form>
+            </field>
+        </record>
+
+        <record id="action_test" model="ir.actions.act_window">
+            <field name="name">Test</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">python.test</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_test_tree"/>
+        </record>
+        
+        <menuitem
+            parent="base.next_id_6"
+            id="testing"
+            action="action_test"/>
+        
+</data>
+</openerp>
